@@ -1,0 +1,139 @@
+:root {
+  --bg: linear-gradient(135deg, #eef4ff, #f8fbff);
+  --card: #ffffff;
+  --primary: #3b82f6;
+  --text: #0f172a;
+  --muted: #64748b;
+  --radius: 18px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: var(--bg);
+  font-family: 'Inter', system-ui, sans-serif;
+  color: var(--text);
+}
+
+.header {
+  text-align: center;
+  padding: 2rem 1rem;
+}
+
+.header span {
+  color: var(--primary);
+}
+
+.search-box {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-bottom: 2rem;
+}
+
+.search-box input {
+  padding: 0.8rem 1rem;
+  width: 260px;
+  border-radius: var(--radius);
+  border: none;
+  outline: none;
+}
+
+.search-box button {
+  padding: 0.8rem 1.5rem;
+  border-radius: var(--radius);
+  border: none;
+  background: var(--primary);
+  color: white;
+  cursor: pointer;
+}
+
+#content {
+  max-width: 900px;
+  margin: auto;
+  padding: 1rem;
+}
+
+.card {
+  background: var(--card);
+  border-radius: var(--radius);
+  padding: 1.5rem;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+}
+
+.weather-main {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.weather-icon {
+  font-size: 5rem;
+}
+
+#temperature {
+  font-size: 3.5rem;
+  color: var(--primary);
+}
+
+.stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.stat {
+  text-align: center;
+}
+
+.loading {
+  text-align: center;
+  margin: 2rem 0;
+}
+
+.error {
+  background: #fee2e2;
+  color: #b91c1c;
+  padding: 1rem;
+  border-radius: var(--radius);
+  margin-bottom: 1rem;
+}
+
+.hidden {
+  display: none;
+}
+
+.fade-in {
+  animation: fade 0.4s ease forwards;
+}
+
+@keyframes fade {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.high {
+  color: #ef4444;
+  font-weight: 600;
+}
+
+.normal {
+  color: #10b981;
+  font-weight: 600;
+}
+
+.low {
+  color: #3b82f6;
+  font-weight: 600;
+}

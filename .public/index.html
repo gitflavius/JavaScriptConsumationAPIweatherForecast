@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <title>Clima.com</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <header class="header">
+    <h1>☁️ <span>Clima</span>.com</h1>
+    <p>Real-time weather forecast</p>
+  </header>
+
+  <section class="search-box">
+    <input type="text" id="cityInput" placeholder="Digite o Nome da cidade..." />
+    <button id="searchBtn">Buscar</button>
+  </section>
+
+  <main id="content">
+
+    <div id="loading" class="loading hidden">Carregando clima...</div>
+    <div id="error" class="error hidden"></div>
+
+    <section id="weatherCard" class="card hidden fade-in">
+      <div class="weather-main">
+        <div>
+          <h2 id="cityName"></h2>
+          <p id="description"></p>
+          <h3 id="temperature"></h3>
+          <p id="range"></p>
+        </div>
+        <div id="icon" class="weather-icon"></div>
+      </div>
+    </section>
+
+    <section class="stats hidden fade-in" id="stats">
+      <div class="card stat">
+        💧
+        <p>Humidity</p>
+        <strong id="humidity"></strong>
+      </div>
+      <div class="card stat">
+        💨
+        <p>Wind</p>
+        <strong id="wind"></strong>
+      </div>
+      <div class="card stat">
+        🔵
+        <p>Pressure</p>
+        <strong id="pressure"></strong>
+      </div>
+      <div class="card stat">
+        👁️
+        <p>Visibility</p>
+        <strong id="visibility"></strong>
+      </div>
+    </section>
+
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
