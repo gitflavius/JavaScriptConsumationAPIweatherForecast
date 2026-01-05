@@ -20,6 +20,8 @@ const wind = document.getElementById("wind");
 const pressure = document.getElementById("pressure");
 const visibility = document.getElementById("visibility");
 
+const weatherAnimation = document.getElementById("weatherAnimation");
+
 searchBtn.addEventListener("click", () => {
   const city = cityInput.value.trim();
   if (!city) return;
@@ -48,6 +50,7 @@ function renderWeather(data) {
   hideLoading();
   hideError();
 
+  setWeatherAnimation(data.weather[0].main);
   weatherCard.classList.remove("hidden");
   stats.classList.remove("hidden");
 
@@ -60,21 +63,30 @@ function renderWeather(data) {
   wind.textContent = `${data.wind.speed} m/s`;
   pressure.textContent = `${data.main.pressure} hPa`;
   visibility.textContent = `${data.visibility / 1000} km`;
+  
 
-  icon.textContent = getWeatherIcon(data.weather[0].main);
+
 }
 
-function getWeatherIcon(condition) {
-  const icons = {
-    Clear: "☀️",
-    Clouds: "☁️",
-    Rain: "🌧️",
-    Snow: "❄️",
-    Thunderstorm: "⛈️",
-    Drizzle: "🌦️",
-    Mist: "🌫️"
-  };
-  return icons[condition] || "🌍";
+function setWeatherAnimation(condition) {
+  weatherAnimation.innerHTML = "";
+
+  if (condition === "Clear") {
+    weatherAnimation.innerHTML = `<div class="sun"></div>`;
+  }
+
+  if (condition === "Clouds") {
+    weatherAnimation.innerHTML = `<div class="cloud"></div>`;
+  }
+
+  if (condition === "Rain" || condition === "Drizzle") {
+    weatherAnimation.innerHTML = `
+      <div class="cloud"></div>
+      <div class="rain"></div>
+      <div class="rain" style="left:45%"></div>
+      <div class="rain" style="left:55%"></div>
+    `;
+  }
 }
 
 function showLoading() {

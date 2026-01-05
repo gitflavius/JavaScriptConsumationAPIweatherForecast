@@ -75,6 +75,88 @@ body {
   font-size: 5rem;
 }
 
+
+.high {
+  color: #ef4444;
+  font-weight: 600;
+}
+
+.normal {
+  color: #10b981;
+  font-weight: 600;
+}
+
+.low {
+  color: #3b82f6;
+  font-weight: 600;
+}
+
+
+/* === WEATHER ANIMATIONS === */
+
+.weather-animation {
+  position: relative;
+  width: 120px;
+  height: 120px;
+}
+
+/*  SUN */
+.sun {
+  width: 80px;
+  height: 80px;
+  background: #facc15;
+  border-radius: 50%;
+  margin: auto;
+  animation: spin 8s linear infinite;
+  box-shadow: 0 0 30px rgba(250, 204, 21, 0.6);
+}
+
+/*  CLOUD */
+.cloud {
+  position: absolute;
+  top: 40px;
+  left: 20px;
+  width: 80px;
+  height: 40px;
+  background: #e5e7eb;
+  border-radius: 20px;
+  animation: float 4s ease-in-out infinite;
+}
+
+.cloud::before,
+.cloud::after {
+  content: "";
+  position: absolute;
+  background: #e5e7eb;
+  border-radius: 50%;
+}
+
+.cloud::before {
+  width: 40px;
+  height: 40px;
+  top: -20px;
+  left: 10px;
+}
+
+.cloud::after {
+  width: 50px;
+  height: 50px;
+  top: -25px;
+  right: 10px;
+}
+
+/*  RAIN */
+.rain {
+  position: absolute;
+  top: 90px;
+  left: 50%;
+  width: 4px;
+  height: 15px;
+  background: #3b82f6;
+  animation: rain 0.6s linear infinite;
+}
+
+
 #temperature {
   font-size: 3.5rem;
   color: var(--primary);
@@ -123,17 +205,19 @@ body {
   }
 }
 
-.high {
-  color: #ef4444;
-  font-weight: 600;
+
+/* ANIMATIONS */
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
 }
 
-.normal {
-  color: #10b981;
-  font-weight: 600;
+@keyframes float {
+  0%, 100% { transform: translateX(0); }
+  50% { transform: translateX(10px); }
 }
 
-.low {
-  color: #3b82f6;
-  font-weight: 600;
+@keyframes rain {
+  from { transform: translateY(0); opacity: 1; }
+  to { transform: translateY(20px); opacity: 0; }
 }
