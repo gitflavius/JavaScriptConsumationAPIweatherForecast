@@ -3,65 +3,109 @@
 <head>
   <meta charset="UTF-8" />
   <title>Clima.com</title>
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- CSS principal -->
   <link rel="stylesheet" href="style.css" />
 </head>
-<body>
 
+<body id="app">
+
+  <!-- 🌤️ HEADER -->
   <header class="header">
-    <h1>☁️ <span>Clima</span>.com</h1>
-    <p>Previsão em tempo real</p>
+    <h1 class="logo">
+      <span class="logo-icon">☁️</span>
+      <span class="logo-text">Clima</span><span class="logo-dot">.com</span>
+    </h1>
+    <p class="subtitle">Previsão do tempo em tempo real</p>
   </header>
 
+  <!-- 🔍 BUSCA -->
   <section class="search-box">
-    <input type="text" id="cityInput" placeholder="Digite o Nome da cidade..." />
+    <input
+      type="text"
+      id="cityInput"
+      placeholder="Digite o nome da cidade..."
+      autocomplete="off"
+    />
     <button id="searchBtn">Buscar</button>
   </section>
 
+  <!-- 🌎 CONTEÚDO -->
   <main id="content">
 
-    <div id="loading" class="loading hidden">Carregando clima...</div>
+    <!-- LOADING -->
+    <div id="loading" class="loading hidden">
+      <span class="loader"></span>
+      <p>Carregando clima...</p>
+    </div>
+
+    <!-- ERRO -->
     <div id="error" class="error hidden"></div>
 
-    <section id="weatherCard" class="card hidden fade-in">
+    <!-- 🌦️ CARD PRINCIPAL -->
+    <section id="weatherCard" class="card glass hidden fade-in">
+
       <div class="weather-main">
-        <div>
+
+        <!-- INFO -->
+        <div class="weather-info">
           <h2 id="cityName"></h2>
-          <p id="description"></p>
-          <h3 id="temperature"></h3>
-          <p id="range"></p>
+          <p id="description" class="weather-desc"></p>
+
+          <h3 id="temperature" class="temp"></h3>
+          <p id="range" class="range"></p>
         </div>
-        <div id="icon" class="weather-icon">
-          <div class="weather-animation" id="weatherAnimation"></div>
+
+        <!-- ANIMAÇÃO -->
+        <div class="weather-visual">
+          <div id="weatherAnimation" class="weather-animation"></div>
         </div>
+
       </div>
+
     </section>
 
-    <section class="stats hidden fade-in" id="stats">
-      <div class="card stat">
-        💧
-        <p>Humidade</p>
+    <!-- 📊 STATS -->
+    <section id="stats" class="stats hidden fade-in">
+
+      <div class="card glass stat">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+          <path d="M12 2C8 7 6 10 6 13a6 6 0 0 0 12 0c0-3-2-6-6-11z"/>
+        </svg>
         <strong id="humidity"></strong>
-      </div>
-      <div class="card stat">
-        💨
-        <p>Ventos</p>
+      </div>  
+
+      <div class="card glass stat">
+        <span class="icon">💨</span>
+        <p>Vento</p>
         <strong id="wind"></strong>
       </div>
-      <div class="card stat">
-        🔵
+
+      <div class="card glass stat">
+        <span class="icon">🔵</span>
         <p>Pressão</p>
         <strong id="pressure"></strong>
       </div>
-      <div class="card stat">
-        👁️
+
+      <div class="card glass stat">
+        <span class="icon">👁️</span>
         <p>Visibilidade</p>
         <strong id="visibility"></strong>
       </div>
+
     </section>
 
+    <!-- 📅 PREVISÃO -->
+     
+
+
+    
+    
   </main>
 
+  <!-- JS -->
   <script src="script.js"></script>
 </body>
 </html>
