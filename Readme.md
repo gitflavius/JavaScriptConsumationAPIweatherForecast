@@ -17,3 +17,6 @@ Simple weather dashboard built with vanilla JavaScript consuming the OpenWeather
 
 ## How to run
 Just open `index.html` in your browser.
+
+###Live Site:
+https://java-script-consumation-ap-iweather.vercel.app/
